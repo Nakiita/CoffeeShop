@@ -75,6 +75,10 @@ public class AdminController {
         return "productsAdd";
     }
 
-
+    @PostMapping("/admin/products/add")
+    public String postProdAdd(@ModelAttribute("product") Product product){
+        productService.addProduct(product);
+        return "redirect:/admin/products";
+    }
 
 }

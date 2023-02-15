@@ -41,7 +41,7 @@
     </div>
 
 </nav>
-<div class="container-fluid">
+<div class="container">
 
     <a th:href="@{/admin/products/add}" style="margin: 20px 0"class="btn-btn-primary">Add Products</a>
     <table class="table">
@@ -56,22 +56,21 @@
         </thead>
 
         <tbody>
-        <tr th:each="product, ${products}">
+        <tr th:each="product: ${products}">
             <td th:text="${product.Name}"></td>
             <td th:text="${product.category.Name}"></td>
-<!--            <td><img src="" height="100px" width="100px" th:src="@{${'/productImages/' + product.in}"></td>-->
 
 
 
 
             <!--delete-->
-            <td><a href="" th:href="@{/admin/product/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm"
+            <td><a href="" th:href="@{/admin/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm"
                    onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
                 Delete
             </a> </td>
 
             <!--            update-->
-            <td><a href="" th:href="@{/admin/product/update/{id}(id=${product.id})}" class="btn btn-info btn-sm">Update</a> </td>
+            <td><a href="" th:href="@{/admin/products/update/{id}(id=${product.id})}" class="btn btn-info btn-sm">Update</a> </td>
         </tr>
         </tbody>
     </table>
