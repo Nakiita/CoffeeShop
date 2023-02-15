@@ -1,0 +1,231 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+}
+.all-Content{
+    background: white;
+
+}
+html ::-webkit-scrollbar-track{
+    background: transparent;
+
+}
+html ::-webkit-scrollbar-thumb{
+    background:orange;
+    border-radius: 10px;
+}
+html ::-webkit-scrollbar{
+    width: 10px;
+}
+
+/* navbar start */
+#navbar{
+    background-color: orange;
+}
+.navbar-nav{
+    margin-left: 50px;
+}
+.nav-item .nav-link{
+    color: black;
+    margin-left: 10px;
+    font-weight:bold ;
+    transition: 0.5s;
+}
+.nav-item .nav-link:hover{
+    background: white;
+    border-radius: 5px;
+    color: black;
+}
+#navbar form button{
+    background: black;
+    color: white;
+    border: 1px solid white;
+}
+/* navbar ends */
+
+/* home section starts */
+#home{
+    width: 100%;
+    height: 90vh;
+    background-image: linear-gradient(black,rgba(0,0,0,0.3)),url(./static/images/Americano.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+#home .content{
+    padding-top: 210px;
+    margin-left: 56px ;
+}
+#home .content h3{
+    margin-top: 10px;
+    color: white;
+
+
+}
+#home .content p{
+    margin-top: 10px;
+    color: white;
+}
+#btn{
+    width: 150px;
+    height: 36px;
+    margin-top: 20px;
+    background: white;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#btn:hover{
+    background: orange;
+    color: white;
+}
+/* home section ends */
+
+
+
+/* top cards starts */
+#top-cards{
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+
+}
+.heading2{
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+.heading2 span{
+    color: orange;
+
+}
+#top-cards .container{
+    margin-top: 30px;
+
+}
+#top-cards .card{
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor:pointer;
+}
+#top-cards .card img{
+    border-radius: 10px;
+}
+#top-cards .card:hover{
+    transform: translateY(-10px);
+}
+/* ends */
+
+
+
+/* menu starts */
+#menu{
+    width: 100%;
+    margin-top: 30px;
+}
+.heading3{
+    text-align: center;
+    font-size: 30px;
+    color: orange;
+    font-weight: bold;
+    border-bottom: 2px solid orange;
+}
+#container2{
+    margin-top: 50px;
+}
+#menu .card{
+    box-shadow: rgba(149,157,165,0.2) 0px 8px 24px;
+}
+.star i{
+    color: orange;
+}
+#menu h3{
+    text-align: center;
+    color: orange;
+    margin-top: 10px;
+    font-size: 25px;
+}
+#menu p{
+    font-size: 16px;
+    color: orange;
+    padding-top: 10px;
+}
+#menu p span{
+    float: right;
+    cursor: pointer;
+}
+/* menu ends */
+
+
+/* contact starts */
+#contact{
+    width: 100%;
+    height: 100vh;
+    padding-top: 70px;
+}
+#contact .container{
+    width: 100%;
+    height: 80vh;
+    border-radius:  10px ;
+}
+.heading6{
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 70px;
+}
+.heading6 span{
+    color: orange;
+}
+#contact p{
+
+    font-weight: bold;
+    font-size: 13px;
+    color: black;
+}
+#contact input{
+    width: 360px;
+    border: none;
+    border-bottom: 1px solid orange;
+
+}
+#contact-btn{
+    width: 200px;
+    height: 36px;
+    border: none;
+    background: orange;
+    color: white;
+    font-weight: bold;
+    margin-top: 36px;
+    cursor: pointer;
+}
+#col{
+    width: 40%;
+    height: 56vh;
+    background: black;
+    margin-top: 78px;
+}
+#contact h1{
+    color: white;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+#contact #col p{
+    font-size: 15px;
+    color: white;
+    margin-left: 13px;
+    margin-top: 36px;
+}
+@media screen and (max-width:766px){
+    #contact.container{
+        background: white;
+    }
+    #col{
+        width: 100%;
+        background: orange;
+    }
+
+}

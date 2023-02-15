@@ -1,0 +1,27 @@
+<body style="background-color: blanchedalmond;">
+<div style="text-align: center; ">
+
+    <form th:action="@{/login}" method="post" id="LoginForm">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Log Into Your Account</h1>
+        </div>
+        <div class="form-input" style="margin: 10px 0;">
+            <input type="email" name="email" class="form-control" placeholder="Enter your E-mail" required autofocus/>
+        </div>
+        <div class="form-input" style="margin: 10px 0;">
+            <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required autofocus/>
+        </div>
+        <div class="button-section" style="margin: 10px 0;">
+            <button type="submit" form="LoginForm" style="background-color: bisque">Log In </button>
+        </div>
+        <div class="button-section" style=" margin: 40px 0; ">
+            <button type="submit" form="LoginForm" style="background-color: bisque">Forgot Password? </button>
+        </div>
+
+        <div class="button-section" >
+            <label>Don't Have an Account? </label>
+            <a th:href="@{/user/register}" class="signup">Sign Up</a>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,101 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.o, maximum-scale=1.0">
+
+    <title>Coffee-Shop</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coffee Shop</title>
+        <link rel="stylesheet" href="style.css">
+        <!--bootstrap links-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!--bootstrap links-->
+        <!-- font links -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+        <!--font links-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" >
+        <!-- icon links -->
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" id="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img th:src="@{images/logo.jpg}" src="static/images/logo.jpg" width="50" height="50" class="d-inline-block align-top" alt=""/>
+        </a>        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fa-solid fa-bars" style="color: white; font-size: 23px;"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/home}" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/menu}" href="#menu">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{contact}" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}" href="#login">Login/Register</a>
+                </li>
+
+
+
+
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+
+    <!-- contact section starts -->
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-7">
+                <div class="heading6">Contact<span> Us</span></div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis sequi consectetur blanditiis sint voluptatum. Suscipit recusandae ratione, quaerat repudiandae delectus provident accusantium blanditiis amet quia tenetur possimus repellendus ullam aut.</p>
+                <input type="text" class="form-control" placeholder="Name" aria-label="default input example">
+                <input type="email" class="form-control" placeholder="Email" aria-label="default input example">
+                <input type="number" class="form-control" placeholder="Phone " aria-label="default input example">
+                <button id="contact-btn">Send Message</button>
+
+
+            </div>
+            <div class="col-md-5" id="col">
+                <h1>Info</h1>
+                <p><i class="fa-regular fa-envelope"></i> example@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i> 9841000000</p>
+                <p><i class="fa-solid fa-building-columns"></i> Balaju</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, et quo repellat eveniet doloremque reiciendis laboriosam doloribus! Praesentium esse odio ad molestiae officiis voluptate rerum, eius similique, ipsam, at doloribus?</p>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- contact section ends -->
