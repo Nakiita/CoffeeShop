@@ -50,15 +50,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserPojo save(UserPojo userPojo) throws IOException {
-        User user;
-        if (userPojo.getId() != null) {
-            user = userRepo.findById(userPojo.getId()).orElseThrow(() -> new RuntimeException("Not Found"));
-        } else {
-            user = new User();
-        }
+//        User user;
+//        if (userPojo.getId() != null) {
+//            user = userRepo.findById(userPojo.getId()).orElseThrow(() -> new RuntimeException("Not Found"));
+//        } else {
+            User user = new User();
+//        }
         user.setEmail(userPojo.getEmail());
-        user.setFullName(userPojo.getFullname());
-        user.setMobileNo(userPojo.getMobile_no());
+        user.setFullName(userPojo.getFullName());
+        user.setMobileNo(userPojo.getMobileNo());
         user.setPassword(PasswordEncoderUtil.getInstance().encode(userPojo.getPassword()));
 
         if(userPojo.getImage()!=null){
@@ -80,11 +80,12 @@ public class UserServiceImpl implements UserService {
     }
 
     public User fetchById(Integer id) {
-        return userRepo.findById(id).orElseThrow(()->new RuntimeException("Not Found"));
+//        return userRepo.findById(id).orElseThrow(()->new RuntimeException("Not Found"));
+        return null;
     }
 
     public void deleteById(Integer id){
-        userRepo.deleteById(id);
+//        userRepo.deleteById(id);
     }
 
     @Override

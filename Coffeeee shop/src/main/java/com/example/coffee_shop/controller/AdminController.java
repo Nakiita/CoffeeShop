@@ -7,20 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.coffee_shop.entity.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 @Controller
+
 public class AdminController {
+    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
     @Autowired
     ProductService productService;
     @Autowired
     CategoryService categoryService;
-
 
     @GetMapping("/admin")
     public String adminHome(){
@@ -71,14 +74,13 @@ public class AdminController {
     @GetMapping("/admin/products/add")
     public String getproduct(Model model){
         model.addAttribute("product",new Product());
-        model.addAttribute("categories", categoryService.getAllCategory());
+//        model.addAttribute("categories", categoryService.getAllCategory());
         return "productsAdd";
     }
 
     @PostMapping("/admin/products/add")
     public String postProdAdd(@ModelAttribute("product") Product product){
-        productService.addProduct(product);
-        return "redirect:/admin/products";
+            productService.addProduct(product);
+            return "redirect:/admin/products";
     }
-
 }

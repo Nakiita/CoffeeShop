@@ -1,33 +1,33 @@
-<body style="background-color: blanchedalmond;">
-<div style="text-align: center; ">
-
-    <form th:action="@{/register}" method="post" id="RegisterForm">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">Register Your Account</h1>
+<div class="Wrapper">
+    <h1>Sign Up</h1>
+    <form th:method="post"
+          th:action="@{/user/register/save}"
+          th:object="${user}" enctype="multipart/form-data">
+        <div class="Text-Field">
+            <input type="text" th:field="*{fullName}" required>
+            <label>Full Name</label>
         </div>
-
-        <div class="form-input" style="margin: 10px 0;">
-            <input type="username" name="username" class="form-control" placeholder="Enter your Fullname" required autofocus/>
+        <div class="Text-Field">
+            <input type="text" th:field="*{email}" required>
+            <label>Email</label>
         </div>
-
-        <div class="form-input" style="margin: 10px 0;">
-            <input type="email" name="email" class="form-control" placeholder="Enter your E-mail" required autofocus/>
+        <div class="Text-Field">
+            <input type="number" th:field="*{mobileNo}" required>
+            <label>Phone Number</label>
         </div>
-
-        <div class="form-input" style="margin: 10px 0;">
-            <input type="number" name="number" class="form-control" placeholder="Mobile Number" required autofocus/>
+        <div class="Text-Field">
+            <input type="password" th:field="*{password}" required>
+            <label>Create Password</label>
         </div>
-        <div class="form-input" style="margin: 10px 0;">
-            <input type="password" name="password" class="form-control" placeholder="Password" required autofocus/>
+        <div class="Text-Field">
+            <input type="password" required>
+            <label>Confirm Password</label>
         </div>
-        <div class="button-section" style="margin: 10px 0;">
-            <button type="submit" form="RegisterForm" style="background-color: bisque">Sign Up </button>
-        </div>
-
-        <div class="button-section" >
-            <label>Already Have an Account? </label>
-            <a th:href="@{/login}" class="signin">Sign In</a>
-
+        <div class="submit">
+            <button type="submit">Submit</button>
         </div>
     </form>
+    <div class="Login_link">
+        Already have an account?<a th:href="@{~/user/login}">Login</a>
+    </div>
 </div>

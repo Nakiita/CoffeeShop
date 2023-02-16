@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee Shop</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" th:href="@{~/css/style.css}">
     <!--bootstrap links-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--bootstrap links-->
@@ -20,14 +20,13 @@
 
 </head>
 <body>
-
 <div class="all-content">
     <!-- navbar start -->
 
-    <form th:action="@{/home}" method="post" id="UserForm">
+
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" id="logo"><img th:src="@{images/logo.jpg}" src="static/images/logo.jpg" width="200px" height="200px" alt=""></a>
+            <a class="navbar-brand" href="#" id="logo"><img src="./images/logo.jpg" width="200px" height="200px" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="fa-solid fa-bars" style="color: white; font-size: 23px;"></i></span>
             </button>
@@ -37,13 +36,13 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#menu">Menu</a>
+                        <a href="#" th:href="@{/menu}" class="nav-link active">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a href="#" th:href="@{/contact}" class="nav-link active">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#login">Login/Register</a>
+                        <a href="#" th:href="@{/login}" class="nav-link active" >Login/Register</a>
                     </li>
 
 
@@ -78,25 +77,25 @@
 
     <!-- top card starts -->
     <section id="top-cards">
-        <div class="heading2">Top <span>Categories</span></div>
+        <div class="heading2">Top <span>Categoriess</span></div>
         <div class="container">
             <div class="row">
 
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card">
-                        <img th:src="static/images/ColdCoffee.jpg" alt="">
+                        <img src="./images/Cold Coffee.jpg" alt="">
                     </div>
                 </div>
 
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card">
-                        <img src="static/images/Cappuccino.jpg" alt="">
+                        <img src="./images/Cappuccino.jpg" alt="">
                     </div>
                 </div>
 
                 <div class="col-md-4 py-3 py-md-0">
                     <div class="card">
-                        <img th:src="@{~/images/Expresso.jpg}">
+                        <img src="./images/Expresso.jpg" alt="">
                     </div>
                 </div>
 
@@ -110,8 +109,6 @@
         </div>
     </section>
     <!-- top card end -->
-
-    </form>
 
 </div>
 

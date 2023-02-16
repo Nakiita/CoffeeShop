@@ -21,10 +21,10 @@ public class UserPojo {
     private String email;
 
     @NotEmpty(message = "Full name can't be empty")
-    private String fullname;
+    private String fullName;
 
     @NotEmpty(message = "Mobile Number can't be empty")
-    private String mobile_no;
+    private String mobileNo;
 
     @NotEmpty(message = "Password can't be empty")
     private String password;
@@ -34,8 +34,8 @@ public class UserPojo {
     public UserPojo(User user) {
         this.id = user.getId();
         this.email = user.getEmail();
-        this.fullname = user.getFullName();
-        this.mobile_no = user.getMobileNo();
+        this.fullName = user.getFullName();
+        this.mobileNo = user.getMobileNo();
         this.password = user.getPassword();
     }
 }

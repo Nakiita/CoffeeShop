@@ -33,7 +33,7 @@ public class UserController {
     private final UserService userService;
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/coffee_shop";
 
-    @GetMapping("/home")
+    @GetMapping("/userHome")
     public String getPage() {
         return "userHome";
     }
@@ -44,24 +44,14 @@ public class UserController {
         return "user/create";
     }
 
-
-    @GetMapping("/login")
-    public String getLogin(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "user/login";
-        }
-        return ("redirect:/user/user_home");
-    }
-
     @GetMapping("/register")
     public String getRegister(Model model) {
         model.addAttribute("user", new UserPojo());
         return "register";
     }
 
-    @PostMapping("/create")
-    public String createUser(@Valid UserPojo userPojo,
+    @PostMapping("/register/save")
+    public String createUser(UserPojo userPojo,
                              BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IOException {
 
         Map<String, String> requestError = validateRequest(bindingResult);
@@ -72,8 +62,6 @@ public class UserController {
 
         userService.save(userPojo);
         redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
-
-
         return "redirect:/login";
     }
 
@@ -84,34 +72,34 @@ public class UserController {
         return "register";
     }
 
-    @GetMapping("/list")
-    public String getUSerList(Model model) {
-        List<User> users = userService.fetchAll();
-
-
-        model.addAttribute("userList", users.stream().map(user ->
-                User.builder()
-                        .id(user.getId())
-//                        .imageBase64(getImageBase64(user.getImage()))
-                        .email(user.getEmail())
-                        .fullName(user.getFullName())
-                        .mobileNo(user.getMobileNo())
-                        .build()
-
-        ));
-
-//        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
-
-        return "user_list";
-    }
-
-    @GetMapping("/{id}")
-    public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
-        userService.deleteById(id);
-        redirectAttributes.addFlashAttribute("deleteMsg", "Row delete successfully");
-        return "redirect:/user/list";
-    }
-
+//    @GetMapping("/list")
+//    public String getUSerList(Model model) {
+//        List<User> users = userService.fetchAll();
+//
+//
+//        model.addAttribute("userList", users.stream().map(user ->
+//                User.builder()
+//                        .id(user.getId())
+////                        .imageBase64(getImageBase64(user.getImage()))
+//                        .email(user.getEmail())
+//                        .fullName(user.getFullName())
+//                        .mobileNo(user.getMobileNo())
+//                        .build()
+//
+//        ));
+//
+////        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
+//
+//        return "user_list";
+//    }
+//
+//    @GetMapping("/{id}")
+//    public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+//        userService.deleteById(id);
+//        redirectAttributes.addFlashAttribute("deleteMsg", "Row delete successfully");
+//        return "redirect:/user/list";
+//    }
+//
     public Map<String, String> validateRequest(BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) {
             return null;

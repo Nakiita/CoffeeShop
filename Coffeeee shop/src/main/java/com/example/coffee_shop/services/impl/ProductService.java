@@ -1,6 +1,6 @@
 package com.example.coffee_shop.services.impl;
 
-import com.example.coffee_shop.entity.Category;
+
 import com.example.coffee_shop.entity.Product;
 import com.example.coffee_shop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,15 @@ public class ProductService {
     public void addProduct(Product product){
         productRepository.save(product);
     }
+    public void removeProductById(long id){
+        productRepository.deleteById(id);
+    }
+    public Optional<Product> getProductById(long id){
+        return productRepository.findById(id);
+    }
+//    public List<Product>getAllProductsByCategoryId(int id){
+//        return productRepository.findAllByCategoryId(id);
+//    }
 
     }
 

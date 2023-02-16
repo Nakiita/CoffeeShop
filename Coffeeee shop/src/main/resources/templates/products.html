@@ -48,8 +48,8 @@
         <thead class="thead-light">
         <tr>
             <th scope = "col">ProductName</th>
-            <th scope = "col">Category</th>
             <th scope = "col">Preview</th>
+            <th scope = "col">Image</th>
             <th scope = "col">Delete</th>
             <th scope = "col">Update</th>
         </tr>
@@ -58,10 +58,8 @@
         <tbody>
         <tr th:each="product: ${products}">
             <td th:text="${product.Name}"></td>
-            <td th:text="${product.category.Name}"></td>
-
-
-
+            <td th:text="${product.Preview}"></td>
+            <td th:text="${product.imageUrl}"></td>
 
             <!--delete-->
             <td><a href="" th:href="@{/admin/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm"
