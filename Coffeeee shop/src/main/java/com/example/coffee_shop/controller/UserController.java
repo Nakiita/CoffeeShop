@@ -4,11 +4,7 @@ package com.example.coffee_shop.controller;
 import com.example.coffee_shop.entity.User;
 import com.example.coffee_shop.pojo.UserPojo;
 import com.example.coffee_shop.services.UserService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,12 +33,11 @@ public class UserController {
     public String getPage() {
         return "userHome";
     }
-
-
-    @GetMapping("/create")
-    public String getCreatePage() {
-        return "user/create";
-    }
+//
+//    @GetMapping("/create")
+//    public String getCreatePage() {
+//        return "user/create";
+//    }
 
     @GetMapping("/register")
     public String getRegister(Model model) {
@@ -59,7 +54,6 @@ public class UserController {
             redirectAttributes.addFlashAttribute("requestError", requestError);
             return "redirect:/user/register";
         }
-
         userService.save(userPojo);
         redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
         return "redirect:/login";
@@ -72,34 +66,6 @@ public class UserController {
         return "register";
     }
 
-//    @GetMapping("/list")
-//    public String getUSerList(Model model) {
-//        List<User> users = userService.fetchAll();
-//
-//
-//        model.addAttribute("userList", users.stream().map(user ->
-//                User.builder()
-//                        .id(user.getId())
-////                        .imageBase64(getImageBase64(user.getImage()))
-//                        .email(user.getEmail())
-//                        .fullName(user.getFullName())
-//                        .mobileNo(user.getMobileNo())
-//                        .build()
-//
-//        ));
-//
-////        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
-//
-//        return "user_list";
-//    }
-//
-//    @GetMapping("/{id}")
-//    public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
-//        userService.deleteById(id);
-//        redirectAttributes.addFlashAttribute("deleteMsg", "Row delete successfully");
-//        return "redirect:/user/list";
-//    }
-//
     public Map<String, String> validateRequest(BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) {
             return null;
@@ -130,7 +96,5 @@ public class UserController {
         String base64 = Base64.getEncoder().encodeToString(bytes);
         return base64;
     }
-
-
 }
 

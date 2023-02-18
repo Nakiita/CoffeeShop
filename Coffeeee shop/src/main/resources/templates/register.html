@@ -1,33 +1,56 @@
-<div class="Wrapper">
-    <h1>Sign Up</h1>
-    <form th:method="post"
-          th:action="@{/user/register/save}"
-          th:object="${user}" enctype="multipart/form-data">
-        <div class="Text-Field">
-            <input type="text" th:field="*{fullName}" required>
-            <label>Full Name</label>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee-Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-dark text-light">
+                    <h1 class="card-title m-0">Sign Up</h1>
+                </div>
+                <div class="card-body">
+                    <form th:method="post"
+                          th:action="@{/user/register/save}"
+                          th:object="${user}" enctype="multipart/form-data">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" th:field="*{fullName}" required>
+                            <label for="fullName">Full Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" th:field="*{email}" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control" th:field="*{mobileNo}" required>
+                            <label for="mobileNo">Phone Number</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" th:field="*{password}" required>
+                            <label for="password"> Password</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" required>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </div>
+                        <div class="submit">
+                            <button class="card-header bg-dark text-light" type="submit">Submit</button>
+                        </div>
+                    </form>
+                        </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center">
+                        Already have an account? <a th:href="@{/login}">Login</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="Text-Field">
-            <input type="text" th:field="*{email}" required>
-            <label>Email</label>
-        </div>
-        <div class="Text-Field">
-            <input type="number" th:field="*{mobileNo}" required>
-            <label>Phone Number</label>
-        </div>
-        <div class="Text-Field">
-            <input type="password" th:field="*{password}" required>
-            <label>Create Password</label>
-        </div>
-        <div class="Text-Field">
-            <input type="password" required>
-            <label>Confirm Password</label>
-        </div>
-        <div class="submit">
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-    <div class="Login_link">
-        Already have an account?<a th:href="@{~/user/login}">Login</a>
     </div>
-</div>
+</body>
+</html>

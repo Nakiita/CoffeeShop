@@ -26,7 +26,7 @@ public class Product{
     public Product() {
 
     }
-    public Product(String Name, String CategoryId, String Preview, String Image) {
+    public Product(String Name, String Preview, String Image) {
         super();
         this.Name = Name;
 //        this.CategoryId = CategoryId;

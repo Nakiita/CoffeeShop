@@ -1,5 +1,5 @@
 package com.example.coffee_shop.controller;
-//
+
 import com.example.coffee_shop.entity.Product;
 import com.example.coffee_shop.services.impl.CategoryService;
 import com.example.coffee_shop.services.impl.ProductService;
@@ -8,18 +8,11 @@ import com.example.coffee_shop.entity.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Optional;
 
 @Controller
-
 public class AdminController {
-    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/productImages";
+    public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/Images";
     @Autowired
     ProductService productService;
     @Autowired
@@ -65,22 +58,5 @@ public class AdminController {
         }else
             return "404";
     }
-    //product section
-    @GetMapping("/admin/products")
-    public String getProduct(Model model){
-        model.addAttribute("products",productService.getAllProduct());
-        return "products";
-    }
-    @GetMapping("/admin/products/add")
-    public String getproduct(Model model){
-        model.addAttribute("product",new Product());
-//        model.addAttribute("categories", categoryService.getAllCategory());
-        return "productsAdd";
-    }
 
-    @PostMapping("/admin/products/add")
-    public String postProdAdd(@ModelAttribute("product") Product product){
-            productService.addProduct(product);
-            return "redirect:/admin/products";
-    }
 }

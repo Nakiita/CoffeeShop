@@ -22,11 +22,13 @@
 </head>
 <body>
 <div class="all-content">
+    <!-- navbar start -->
+
 
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" id="logo">
-                <img th:src="@{/image/logo.jpg}" width="150" height="150" class="d-inline-block align-top" alt=""/>
+                <img th:src="@{/image/logo.jpg}" src="static/image/logo.jpg" width="150" height="150" class="d-inline-block align-top" alt=""/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="fa-solid fa-bars" style="color: white; font-size: 23px;"></i></span>
@@ -34,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/user/userHome}" aria-current="page">Home</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/user/userHome}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a th:href="@{/user/userHome/menu}" class="nav-link active">Menu</a>
@@ -43,7 +45,7 @@
                         <a th:href="@{/user/userHome/contact}" class="nav-link active">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a th:href="@{/login}" class="nav-link active" >Login/Register</a>
+                        <a th:href="@{~/login}" class="nav-link active" >Login/Register</a>
                     </li>
                 </ul>
             </div>
@@ -51,30 +53,30 @@
     </nav>
 
 
+    <!-- home section starts -->
+    <div class="row" style="display: flex; align-self: center;
+         flex-wrap: wrap;
+         justify-content: space-around;">
+    <section id="home">
+        <div class="content">
+            <tr th:each="product: ${products}">
+                <h3 th:text="${product.Name}"></h3>
+                <img style="max-height:175px; max-width: 175px" th:src="${product.imageUrl}" alt="">
 
-    <!-- contact section starts -->
+                <p th:text="${product.Preview}"></p>
 
-<section id="contact">
-    <div class="container">
-        <div class="row">
+<!--            <h3>Americano</h3>-->
+<!--            <img th:src="@{/image/Americano.jpg}" src="static/image/Americano.jpg" width="150" height="150" class="d-inline-block align-top" alt=""/>-->
 
-            <div class="col-md-5" id="col">
-                <h1>Info</h1>
-                <p><i class="fa-regular fa-envelope"></i> nakita@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i> 9841000000</p>
-                <p><i class="fa-solid fa-building-columns"></i> Balaju</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
-                    et quo repellat eveniet doloremque reiciendis laboriosam doloribus!
-                    Praesentium esse odio ad molestiae officiis voluptate rerum,
-                    eius similique, ipsam, at doloribus?</p>
-
-
-            </div>
+<!--            <p>Lorem ipsum dolor sit amet, consectetur-->
+<!--                <br> elit. Reprehenderit, aut repellendus excepturi-->
+<!--                <br> sapiente labore eligendi ad facilis earum?</p>-->
         </div>
-    </div>
-</section>
+
+    </section>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
-
-<!-- contact section ends -->

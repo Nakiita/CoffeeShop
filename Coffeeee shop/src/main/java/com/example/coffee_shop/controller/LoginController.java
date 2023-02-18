@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping
 public class LoginController {
-//    @GetMapping("/login")
-//    public String getPage(){
-//        return "login";
-//    }
 
     @GetMapping("/login")
     public String getLogin() {
@@ -25,15 +21,12 @@ public class LoginController {
         }
         return ("redirect:/user/userHome");
     }
-
-
     @PostMapping("/logout")
     public String logout(Authentication authentication) {
 
         if (authentication.isAuthenticated()) {
             SecurityContextHolder.clearContext();
         }
-
         return "redirect:/login";
     }
 

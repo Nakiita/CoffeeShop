@@ -1,27 +1,39 @@
-<body style="background-color: blanchedalmond;">
-<div style="text-align: center; ">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee-Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+</head>
+<body>
 
-    <form th:action="@{/login}" method="post" id="LoginForm">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">Log Into Your Account</h1>
-        </div>
-        <div class="form-input" style="margin: 10px 0;">
-            <input type="email" name="email" class="form-control" placeholder="Enter your E-mail" required autofocus/>
-        </div>
-        <div class="form-input" style="margin: 10px 0;">
-            <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required autofocus/>
-        </div>
-        <div class="button-section" style="margin: 10px 0;">
-            <button type="submit" form="LoginForm" style="background-color: bisque">Log In </button>
-        </div>
-        <div class="button-section" style=" margin: 40px 0; ">
-            <button type="submit" form="LoginForm" style="background-color: bisque">Forgot Password? </button>
-        </div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <form th:action="@{~/login}" th:method="post" id="LoginForm">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-light">
+                        <h1 class="card-title m-0">Log Into Your Account</h1>
+                    </div>
+                    <div class="form-input" style="margin: 10px 0;">
+                        <input type="email" name="email" class="form-control" placeholder="Enter your E-mail" required autofocus/>
+                    </div>
+                    <div class="form-input" style="margin: 10px 0;">
+                        <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required autofocus/>
+                    </div>
+                    <div class="button-section" style="margin: 10px 0;">
+                        <button type="submit" form="LoginForm" class="card-header bg-dark text-light">Log In </button>
+                    </div>
+                    <div class="button-section" >
+                        <label>Don't Have an Account? </label>
+                        <a th:href="@{/user/register}" class="signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
 
-        <div class="button-section" >
-            <label>Don't Have an Account? </label>
-            <a th:href="@{/user/register}" class="signup">Sign Up</a>
-        </div>
-
-    </form>
+        </form>
+    </div>
 </div>
+</body>
+
