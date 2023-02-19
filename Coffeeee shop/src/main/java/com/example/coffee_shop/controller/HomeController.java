@@ -24,13 +24,14 @@ public class HomeController {
     CategoryService categoryService;
 
     @GetMapping("/shopNow")
-    public String shopNow(){
+    public String shopNow(Model model){
+        model.addAttribute("products",productService.getAllProduct());
         return "UserProduct";
     }
     @PostMapping("/shopNow")
     public String postProdAdd(@ModelAttribute("product") Product product){
         productService.addProduct(product);
-        return "redirect:/userProduct";
+        return "redirect:/user/shopNow";
     }
     @GetMapping("/userHome/menu")
     public String menu(Model model){

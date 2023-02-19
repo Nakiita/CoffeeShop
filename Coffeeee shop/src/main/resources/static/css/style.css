@@ -65,7 +65,7 @@ html ::-webkit-scrollbar{
 }
 #home .content p{
     margin-top: 10px;
-    color: white;
+    color: #000000;
 }
 #btn{
     width: 150px;
