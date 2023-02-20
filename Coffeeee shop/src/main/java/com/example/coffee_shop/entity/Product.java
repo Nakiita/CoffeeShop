@@ -26,10 +26,9 @@ public class Product{
     public Product() {
 
     }
-    public Product(String Name, String Preview, String Image) {
+    public Product(String Name, String Preview, String image) {
         super();
         this.Name = Name;
-//        this.CategoryId = CategoryId;
         this.Preview = Preview;
     }
 }

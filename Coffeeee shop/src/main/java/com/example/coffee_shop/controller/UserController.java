@@ -33,7 +33,7 @@ public class UserController {
     public String getPage() {
         return "userHome";
     }
-//
+//product
 //    @GetMapping("/create")
 //    public String getCreatePage() {
 //        return "user/create";

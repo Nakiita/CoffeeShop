@@ -22,66 +22,41 @@
 </head>
 <body>
 <div class="all-content">
+    <!-- navbar start -->
+
 
     <nav class="navbar navbar-expand-lg" id="navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="logo">
-            <img th:src="@{/image/logo.jpg}" width="150" height="150" class="d-inline-block align-top" alt=""/>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="fa-solid fa-bars" style="color: white; font-size: 23px;"></i></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" th:href="@{/user/userHome}" aria-current="page">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a th:href="@{/user/userHome/menu}" class="nav-link active">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a th:href="@{/user/userHome/contact}" class="nav-link active">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a th:href="@{/login}" class="nav-link active" >Login/Register</a>
-                </li>
-            </ul>
+        <div class="container-fluid">
+            <a class="navbar-brand" id="logo">
+                <img th:src="@{/image/logo.jpg}" width="150" height="150" class="d-inline-block align-top" alt=""/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa-solid fa-bars" style="color: white; font-size: 23px;"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/user/userHome/menu}" class="nav-link active">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/user/userHome/contact}" class="nav-link active">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/login}" class="nav-link active" >Login/Register</a>
+                    </li>
+                </ul>
+                <div class="flex-header">
+                    <li class="nav-item" >
+                        <a class="nav-link active" th:href="@{/logout}" href="#"  onclick="if (!(confirm('Are you sure you want to Logout?'))) return false">Logout</a>
+
+                    </li>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
-
-<!--<div class="card" style="..." >-->
-<!--    <div class="row">-->
-<!--        <div class="col-sm-3">-->
-<!--            <h4>Categories</h4>-->
-<!--            <ul class="list-group">-->
-<!--                <a th:href="@{/menu}"><li class="list-group-item">All Products</li> </a>-->
-<!--                <a href="" th:each="product: ${products}"-->
-<!--                   th:href="@{/menu/category/{id}(id=${category.id})">-->
-<!--                    <li class="list-group-item" th:text="${category.name}">-->
-<!--                    </li>-->
-<!--                </a>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--        <div class="col-sm-9">-->
-<!--            <div class="card" style="..." th:each="product: ${products}">-->
-<!--                <div class="row no-gutters">-->
-<!--                    <div class="col-sm-5 d-flex justify-content-center">-->
-<!--                        <img class="" height="150px" th:src="@{${'/productImages/'}">-->
-<!--                    </div>-->
-<!--                    <div class="col-sm-7 d-flex justify-content-center">-->
-<!--                        <div class="card-body">-->
-<!--                            <h5 class="card-title" th:text="${product.name}">-->
-<!--                            </h5>-->
-<!--                            <h4></h4>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</div>-->
+    </nav>
 
 <!-- menu start -->
 <section id="menu">
@@ -89,133 +64,25 @@
         <div class="heading3">Menu</div>
     </div>
     <div class="container" id="container2">
-
-        <div class="row">
-
-            <div class="col-md-3 py-3 py-md-0">
-                <div class="card">
-                    <img th:src="@{/image/Latte.jpg}" class="d-inline-block align-top" alt=""/>
-
-                    <div class="card-body">
-                        <div class="start text-center">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-
+        <div class="row" style="display: flex; align-self: center;
+         flex-wrap: wrap;
+         justify-content: space-around;">
+                <section id="home">
+                    <div class="row content">
+                        <div class=" card-deck container-fluid d-flex  flex-wrap justify-content-start align-items-center"  >
+                            <div class="card" style="width: 18rem; margin-right: 4px" th:each="category: ${categories}">
+                                <div class="card-body" >
+                                    <h5 class="card-title" th:text="${category.Name}"></h5>
+                                    <img class="card-text" th:src="${category.imageUrl}" width="100" height="100"></img>
+                                    <p class="card-text" th:text="${category.Price}"></p>
+                                </div>
+                            </div>
                         </div>
-
-                        <h3>Latte</h3>
-                        <p> $99<strike>$100</strike><span class="fa-solid fa-cart-shopping">
-
-                            </span>
-                        </p>
                     </div>
-                </div>
+                </section>
             </div>
-            <div class="col-md-3 py-3 py-md-0">
-                <div class="card">
-                    <img th:src="@{/image/Americano.jpg}" class="d-inline-block align-top" alt=""/>
-
-                    <div class="card-body">
-                        <div class="start text-center">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-
-                        </div>
-
-                        <h3>Americano</h3>
-                        <p> $99<strike>$100</strike><span class="fa-solid fa-cart-shopping"></span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 py-3 py-md-0">
-                <div class="card">
-                    <img th:src="@{/image/Expresso.jpg}" class="d-inline-block align-top" alt=""/>
-
-                    <div class="card-body">
-                        <div class="start text-center">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-
-                        </div>
-
-                        <h3>Expresso</h3>
-                        <p> $99<strike>$100</strike><span class="fa-solid fa-cart-shopping"></span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 py-3 py-md-0">
-                <div class="card">
-                    <img th:src="@{/image/Cold Coffee.jpg}" class="d-inline-block align-top" alt=""/>
-
-                    <div class="card-body">
-                        <div class="start text-center">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-
-                        </div>
-
-                        <h3>Cold Coffee</h3>
-                        <p> $99<strike>$100</strike><span class="fa-solid fa-cart-shopping"></span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 py-3 py-md-0">
-                <div class="card">
-                    <img th:src="@{/image/Cappuccino.jpg}" class="d-inline-block align-top" alt=""/>
-
-                    <div class="card-body">
-                        <div class="start text-center">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-
-                        </div>
-
-                        <h3>Cappuccino</h3>
-                        <p> $99<strike>$100</strike><span class="fa-solid fa-cart-shopping"></span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 py-3 py-md-0">
-                <div class="card">
-                    <img th:src="@{/image/Black Coffee.jpg}" class="d-inline-block align-top" alt=""/>
-
-                    <div class="card-body">
-                        <div class="start text-center">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-
-                        </div>
-
-                        <h3>Black Coffee</h3>
-                        <p> $99<strike>$100</strike><span class="fa-solid fa-cart-shopping"></span></p>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
+</section>
     </div>
 </section>
 <!-- menu ends -->

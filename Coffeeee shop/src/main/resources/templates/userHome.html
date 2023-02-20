@@ -48,10 +48,15 @@
                         <a th:href="@{/login}" class="nav-link active" >Login/Register</a>
                     </li>
                 </ul>
+                <div class="flex-header">
+                <li class="nav-item" >
+                    <a class="nav-link active" th:href="@{/logout}" href="#"  onclick="if (!(confirm('Are you sure you want to Logout?'))) return false">Logout</a>
+
+                </li>
+                    </div>
             </div>
         </div>
     </nav>
-
 
     <!-- home section starts -->
     <section id="home">

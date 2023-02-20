@@ -68,7 +68,7 @@
         <tr th:each="product: ${products}">
             <td th:text="${product.Name}"></td>
             <td th:text="${product.Preview}"></td>
-            <td th:text="${product.imageUrl}"></td>
+            <td th:src="${product.imageUrl}"></td>
 
             <!--delete-->
             <td><a href={"/products"} th:href="@{/admin/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm"

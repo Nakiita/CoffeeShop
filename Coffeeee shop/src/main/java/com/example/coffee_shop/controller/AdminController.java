@@ -21,8 +21,8 @@ public class AdminController {
     @GetMapping("/admin")
     public String adminHome(){
         return "adminHome";
-
     }
+
     //categories section
     @GetMapping("/admin/categories")
     public String getCat(Model model){

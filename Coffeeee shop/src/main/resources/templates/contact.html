@@ -22,10 +22,12 @@
 </head>
 <body>
 <div class="all-content">
+    <!-- navbar start -->
+
 
     <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#" id="logo">
+            <a class="navbar-brand" id="logo">
                 <img th:src="@{/image/logo.jpg}" width="150" height="150" class="d-inline-block align-top" alt=""/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/user/userHome}" aria-current="page">Home</a>
+                        <a class="nav-link active" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
                         <a th:href="@{/user/userHome/menu}" class="nav-link active">Menu</a>
@@ -46,6 +48,12 @@
                         <a th:href="@{/login}" class="nav-link active" >Login/Register</a>
                     </li>
                 </ul>
+                <div class="flex-header">
+                    <li class="nav-item" >
+                        <a class="nav-link active" th:href="@{/logout}" href="#"  onclick="if (!(confirm('Are you sure you want to Logout?'))) return false">Logout</a>
+
+                    </li>
+                </div>
             </div>
         </div>
     </nav>
