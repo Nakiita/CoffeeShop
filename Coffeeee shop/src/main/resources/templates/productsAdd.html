@@ -26,9 +26,10 @@
 <body>
 <div class="all-Content">
     <!--nav starts-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <nav class="navbar navbar-expand-lg" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" id="logo">
                 <img th:src="@{/image/logo.jpg}" src="static/image/logo.jpg" width="50" height="50" class="d-inline-block align-top" alt=""/>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +39,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active " th:href="@{/admin}" href="#">Admin-Home</a>
+                        <a class="nav-link active " th:href="@{/admin}">Admin-Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " th:href="@{/admin/categories}">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active " th:href="@{/admin/products}">Products</a>
+                    </li>
+
                     <li class="nav-item" >
-                        <a class="nav-link active" th:href="@{/logout}" href="#"  onclick="if (!(confirm('Are you sure you want to Logout?'))) return false">Logout</a>
+                        <a class="nav-link active" th:href="@{/logout}"
+                           onclick="if (!(confirm('Are you sure you want to Logout?'))) return false">Logout</a>
 
                     </li>
                 </ul>
@@ -53,8 +62,7 @@
     <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card"  style="padding: 30px">
         <h3 class = "top"style="text-align: center" >
         </h3>
-        <h4 style="color: #bababa;text-align: center;">Add Products</h4>
-    <div class="row">
+        <div class="row">
         <div class="col-md-6">
             <form th:action="@{/admin/products/add}" method="post" th:object="${product}">
                 <input type="hidden" name="id" th:field="*{id}">
@@ -63,7 +71,7 @@
                     <label th:for="name">Name</label>
                     <input type="text" class="form-control" required th:field="*{Name}" name="Name">
                 </div> <div class="form-group">
-                    <label th:for="name">Preview</label>
+                    <label th:for="name">Description</label>
                     <input type="text" class="form-control" required th:field="*{Preview}" name="Preview">
                 </div>
 
@@ -72,9 +80,9 @@
             <input type="url" th:field="*{imageUrl}" class="form-control input-lg" title="imageUrl" autofocus="false" />
             <div class="alert alert-danger error-alert" th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}"></div>
         </div>
-
+<br>
             <div class="text-center">
-            <button type="submit" class="btn-btn-primary">Submit</button>
+            <button type="submit" class="btn btn-outline-success">Submit</button>
             </div>
             </form>
     </div>

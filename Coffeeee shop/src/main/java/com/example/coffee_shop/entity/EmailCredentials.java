@@ -17,7 +17,7 @@ public class EmailCredentials {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Email_Seq_GEN")
     @SequenceGenerator(name = "Email_Seq_GEN", sequenceName = "Email_Seq", initialValue = 1, allocationSize = 1)
-    private Long id;
+    private Integer id;
     @Column(unique = true)
     private String email;
     private String password;

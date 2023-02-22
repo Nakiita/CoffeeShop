@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page">Home</a>
+                        <a class="nav-link active" th:href="@{/user/userHome}" aria-current="page">Home</a>
                     </li>
                     <li class="nav-item">
                         <a th:href="@{/user/userHome/menu}" class="nav-link active">Menu</a>
@@ -68,14 +68,21 @@
          flex-wrap: wrap;
          justify-content: space-around;">
                 <section id="home">
+                    <li class="nav-item" >
+                        <a class="nav-link active" th:href="@{/user/shopNow}">Details of Products</a>
+                    </li>
                     <div class="row content">
                         <div class=" card-deck container-fluid d-flex  flex-wrap justify-content-start align-items-center"  >
                             <div class="card" style="width: 18rem; margin-right: 4px" th:each="category: ${categories}">
                                 <div class="card-body" >
                                     <h5 class="card-title" th:text="${category.Name}"></h5>
-                                    <img class="card-text" th:src="${category.imageUrl}" width="100" height="100"></img>
+                                    <img class="card-text" th:src="${category.imageUrl}" ></img>
                                     <p class="card-text" th:text="${category.Price}"></p>
                                 </div>
+                                <li class="nav-item">
+                                    <a th:href="@{/user/userHome/contact}" class="nav-link active"
+                                       onclick="if (!(confirm('Call Us to Order'))) return false">Order</a>
+                                </li>
                             </div>
                         </div>
                     </div>

@@ -60,16 +60,15 @@
     <section id="home">
 
         <div class="row content">
-            <div class=" card-deck container-fluid d-flex  flex-wrap justify-content-start align-items-center"  >
-                <div class="card" style="width: 18rem; margin-right: 4px" th:each="product: ${products}">
-                    <div class="card-body" >
-                        <h5 class="card-title" th:text="${product.Name}"></h5>
-                        <p class="card-text" th:text="${product.Preview}"></p>
-                        <img class="card-text" th:src="${product.imageUrl}" width="100" height="100"></img>
-                    </div>
+            <div class="product-list" th:each="product: ${products}">
+                <div class="product-item">
+                    <h5 class="product-title" th:text="${product.Name}"></h5>
+                    <p class="product-preview" th:text="${product.Preview}"></p>
+                    <img class="product-image" th:src="${product.imageUrl}" width="100" height="100"></img>
                 </div>
             </div>
         </div>
+
     </section>
     </div>
 

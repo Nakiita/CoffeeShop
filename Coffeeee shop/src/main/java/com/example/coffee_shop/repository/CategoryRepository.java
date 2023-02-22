@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableJpaRepositories
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
+
 }

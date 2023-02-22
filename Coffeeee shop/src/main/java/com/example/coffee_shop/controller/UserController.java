@@ -1,24 +1,21 @@
 package com.example.coffee_shop.controller;
-
-
 import com.example.coffee_shop.entity.User;
 import com.example.coffee_shop.pojo.UserPojo;
 import com.example.coffee_shop.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Base64;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -27,17 +24,18 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
-    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/coffee_shop";
+//    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/coffee_shop";
 
     @GetMapping("/userHome")
     public String getPage() {
-        return "userHome";
-    }
-//product
-//    @GetMapping("/create")
-//    public String getCreatePage() {
-//        return "user/create";
-//    }
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        boolean hasUserRole = authentication.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("ADMIN"));
+        System.out.println(hasUserRole);
+        if(hasUserRole){
+            return "redirect:/admin";
+        }
+        return "userHome";}
 
     @GetMapping("/register")
     public String getRegister(Model model) {
