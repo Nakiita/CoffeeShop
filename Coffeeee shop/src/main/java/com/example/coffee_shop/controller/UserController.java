@@ -35,18 +35,16 @@ public class UserController {
         if(hasUserRole){
             return "redirect:/admin";
         }
-        return "userHome";}
-
+        return "userHome";
+    }
     @GetMapping("/register")
     public String getRegister(Model model) {
         model.addAttribute("user", new UserPojo());
         return "register";
     }
-
     @PostMapping("/register/save")
     public String createUser(UserPojo userPojo,
                              BindingResult bindingResult, RedirectAttributes redirectAttributes) throws IOException {
-
         Map<String, String> requestError = validateRequest(bindingResult);
         if (requestError != null) {
             redirectAttributes.addFlashAttribute("requestError", requestError);
@@ -56,14 +54,12 @@ public class UserController {
         redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
         return "redirect:/login";
     }
-
     @GetMapping("/edit/{id}")
     public String editUser(@PathVariable("id") Integer id, Model model) {
         User user = userService.fetchById(id);
         model.addAttribute("user", new UserPojo(user));
         return "register";
     }
-
     public Map<String, String> validateRequest(BindingResult bindingResult) {
         if (!bindingResult.hasErrors()) {
             return null;
@@ -75,9 +71,7 @@ public class UserController {
             errors.put(fieldName, message);
         });
         return errors;
-
     }
-
     //    private String convertImageToBase64(String filename) {
 //        String filePath = System.getProperty("user.dir") + "/canteen_mgmt/" + filename;
 //    }
@@ -95,4 +89,3 @@ public class UserController {
         return base64;
     }
 }
-
