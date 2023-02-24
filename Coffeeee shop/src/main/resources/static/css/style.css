@@ -208,7 +208,7 @@ html ::-webkit-scrollbar{
 #col{
     width: 50%;
     height: 70vh;
-    background: #462424;
+    background: orange;
     margin-top: 78px;
 }
 #contact h1{

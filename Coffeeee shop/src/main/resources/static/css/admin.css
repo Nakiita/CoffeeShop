@@ -46,3 +46,16 @@ html ::-webkit-scrollbar{
 .nav-link{
     background-color:#ffffff;
 }
+
+#addcategory{
+    width: 100%;
+    margin-top: 30px;
+}
+.heading3{
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    border-bottom: 2px solid orange;
+}
+

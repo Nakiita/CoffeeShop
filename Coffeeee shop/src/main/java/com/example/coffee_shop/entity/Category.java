@@ -2,12 +2,14 @@ package com.example.coffee_shop.entity;
 
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 @Entity
+@Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Table(name = "category")
 public class Category {
@@ -24,10 +26,6 @@ public class Category {
 
     @Column(name = "image")
     private String imageUrl;
-
-      public Category() {
-
-      }
       public Category(
               String Name, String image) {
           super();

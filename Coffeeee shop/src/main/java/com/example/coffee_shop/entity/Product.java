@@ -1,13 +1,15 @@
 package com.example.coffee_shop.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 @Entity
+@Builder
 @Getter
 @Setter
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "product")
 public class Product{
     @Id
@@ -23,9 +25,6 @@ public class Product{
     @Column(name = "image")
     private String imageUrl;
 
-    public Product() {
-
-    }
     public Product(String Name, String Preview, String image) {
         super();
         this.Name = Name;

@@ -49,10 +49,9 @@
                     </li>
                 </ul>
                 <div class="flex-header">
-                    <li class="nav-item" >
+
                         <a class="nav-link active" th:href="@{/logout}" href="#"  onclick="if (!(confirm('Are you sure you want to Logout?'))) return false">Logout</a>
 
-                    </li>
                 </div>
             </div>
         </div>
@@ -67,10 +66,8 @@
         <div class="row" style="display: flex; align-self: center;
          flex-wrap: wrap;
          justify-content: space-around;">
-                <section id="home">
-                    <li class="nav-item" >
-                        <a class="nav-link active" th:href="@{/user/shopNow}">Details of Products</a>
-                    </li>
+                        <a th:href="@{/user/shopNow}" style="margin: 20px 0" class="btn btn-dark">Details of Products</a>
+
                     <div class="row content">
                         <div class=" card-deck container-fluid d-flex  flex-wrap justify-content-start align-items-center"  >
                             <div class="card" style="width: 18rem; margin-right: 4px" th:each="category: ${categories}">
@@ -79,20 +76,20 @@
                                     <img class="card-text" th:src="${category.imageUrl}" width="150px" height="150px"></img>
                                     <p class="card-text" th:text="${category.Price}"></p>
                                 </div>
-                                <li class="nav-item">
-                                    <a th:href="@{/user/userHome/contact}" class="nav-link active"
+
+                                    <a th:href="@{/user/userHome/contact}" class="btn btn-dark"
                                        onclick="if (!(confirm('Call Us to Order'))) return false">Order</a>
-                                </li>
+
                             </div>
                         </div>
                     </div>
-                </section>
             </div>
         </div>
 </section>
     </div>
-</section>
 <!-- menu ends -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 
